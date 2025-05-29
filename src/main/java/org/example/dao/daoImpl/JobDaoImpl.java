@@ -2,7 +2,6 @@ package org.example.dao.daoImpl;
 import org.example.config.DBConnection;
 import org.example.dao.JobDao;
 import org.example.models.Job;
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +51,7 @@ private final Connection connection = DBConnection.getConnection();
             ps.setString (2, job.getProfession());
             ps.setString (3, job.getDescription());
             ps.setInt (4, job.getExperience());
+            ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -130,7 +130,6 @@ private final Connection connection = DBConnection.getConnection();
                 );
                 return job;
             }
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
