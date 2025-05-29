@@ -1,21 +1,19 @@
 package org.example;
+import org.example.config.DBConnection;
+import org.example.service.EmployeeService;
+import org.example.service.JobService;
+import org.example.service.serviceImpl.EmployeeServiceImpl;
+import org.example.service.serviceImpl.JobServiceImpl;
 
-import org.example.dao.userDao;
+public class App {
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        userDao userDao = new userDao();
-//        userDao.createUserTable();
-//
-//        userDao.saveUser("Karylgach", "1345");
+    public static void main( String[] args ) {
+//        DBConnection.getConnection();
+        JobService jobService = new JobServiceImpl();
+        EmployeeService employeeService = new EmployeeServiceImpl();
 
-        userDao.deleteUser(1L);
+//        jobService.createJobTable();
+        employeeService.createEmployeeTable();
     }
 
 }
